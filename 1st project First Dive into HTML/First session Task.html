@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session 1 task</title>
+</head>
+<body>
+    <style>
+        html{
+            scroll-behavior: smooth;
+
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #111;
+            color: #fff;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serifs;
+        }
+
+        header{
+            width: calc(100% - 1em);
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            nav{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1em;
+
+                span{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1em;
+                    img{
+                        width: 4em;
+                    }
+                }
+
+                ul{
+                    display: flex;
+                    gap: 2em;
+
+                    list-style-type: none;
+
+                    a{
+                        color: gray;
+                        text-decoration: none;
+                        
+                        &:hover{
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        #hero {
+            display: grid;
+            grid-template-areas: "Stack";
+            width: 100%;
+            height: 50em;
+        }
+
+        #hero #details {   grid-area: Stack;
+            width: 100%;
+            height: 100%;
+            color: #3F260E;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2em;
+            font-size: 2em;
+        }
+
+        #hero #img {
+            grid-area: Stack;
+            width: 100%;
+            height: 100%;
+            background: url("https://cdn.pixabay.com/photo/2025/02/15/18/34/flowers-9409674_640.jpg");
+            background-repeat: repeat;
+            background-size: 20em;
+            background-position: center;
+            z-index: 0; 
+        }
+
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #about, #services{
+            width: 80%;
+            background-color: #222;
+            padding: 2em;
+        }
+
+        #services{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+            >div{
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 2em;
+                background-color: #333;
+                border-radius: 2em;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin: 2em;
+            width: 83.5%;
+            height: 20em;
+        }
+
+        #inputs {
+            display: flex;
+            gap: 2em;
+            width: 100%;
+            height: 50px;
+            padding-bottom: 1em;
+        }
+
+        #inputs > * {
+            flex-grow: 1;
+            color: white;
+            background-color: #222;
+            border: 0px;
+            border-radius: 2em;
+            padding: 1em;
+        }
+
+        #textArea{
+            display: flex;
+        }
+
+        textArea {
+            flex-grow: 1;
+            height: 15em;
+            color: white;
+            background-color: #222;
+            border: 0px;
+            border-radius: 2em;
+            padding: 1em;
+        }
+
+        footer{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+    <header>
+        <nav>
+        <span>
+            <img src="https://cdn.svglogos.dev/logos/daisyUI-icon.svg" alt="LOGO"> 
+            <h2>Flowery</h2>
+        </span>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+                <div id="details">
+                    <h1>Flowery</h1>
+                    <h3>all the flowers you need in one place</h3>
+                </div>
+                <div id="img"></div>
+        </section>
+        <section id="about">
+            <h3>Who are we?</h3>
+            <p>We're Flowery—just a handful of florists who actually enjoy showing up to work.  We're people who know how to cut stems at the right angle and can tell you which flowers look good together without overthinking it. We drink too much coffee, we're covered in green bits by noon, and we genuinely think a well-made bouquet beats a text message every time.</p>
+            <br>
+            <h3>What we do?</h3>
+            <p>We take fresh flowers, arrange them in ways that make sense (and look good), and deliver them to wherever they need to go. That's it. No gimmicks, no "curated experiences," no fancy buzzwords. Need a birthday bouquet? We've got you. Need an apology arrangement? Done. Need flowers just because you like looking at them? Also done. We keep it simple, we keep it fresh, and we don't overcomplicate a good thing.
+            </p>
+        </section>
+        <section id="services">
+            <div>
+                <h3>
+                    Same-Day Delivery Bouquets
+                </h3>
+                <p>
+                    Hand-arranged bouquets for birthdays, anniversaries, apologies, or just because. Order by noon, and we'll have them on someone's doorstep before they finish work. No fuss, no surprises—just flowers that show up on time. 
+                </p>
+            </div>
+            <div>
+                <h3>Custom Event Florals</h3>
+                <p>Weddings, dinners, corporate lunches, or whatever you're hosting. We'll work with your space, your colors, and your budget to create arrangements that don't scream for attention but definitely earn it. We set up, we clean up, we leave you looking good.</p>
+            </div>
+            <div>
+                <h3>Weekly Flower Subscriptions</h3>
+                <p>Fresh flowers delivered to your home or office every week. Same day, same time, zero thinking required. You get a rotating selection of what's freshest that week, and you never have to remember to buy flowers again. It's basically a flower autopilot.</p>
+            </div>
+            <div>
+                <h3>DIY Stem Bar</h3>
+                <p>For the people who want to do it themselves but don't want to buy fifty random stems from a grocery store. We supply a curated box of loose stems, greenery, and a simple guide. You get the creative part; we supply the stuff that doesn't look sad.</p>
+            </div>
+        </section>
+    </main>
+        <form>
+            <div id="inputs">
+                <input type="text" placeholder="Your name">
+                <input type="email" name="" id="" placeholder="username@gmail.com">
+            </div>
+            <div id="textArea">
+                <textarea>Tell us what's your favorite flower types</textarea>
+            </div>
+        </form>
+        <footer>
+            <p>all rights reserved to Flowery 2026</p>
+        </footer>
+</body>
+</html>
