@@ -1,195 +1,248 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="Css.css">
-        <title>My First-ish website</title>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="">nav link 1</a></li>
-                    <li><a href="">nav link 2</a></li>
-                    <li><a href="">nav link 3</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section>
-            <div>
-                <h1>Programming language</h1>
-                <br>
-                <h3>our programming languages like on other</h3>
-            </div>
-            <hr>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session 1 task</title>
+</head>
+<body>
+    <style>
+        html{
+            scroll-behavior: smooth;
+
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #111;
+            color: #fff;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serifs;
+        }
+
+        header{
+            width: calc(100% - 1em);
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            nav{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1em;
+
+                span{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1em;
+                    img{
+                        width: 4em;
+                    }
+                }
+
+                ul{
+                    display: flex;
+                    gap: 2em;
+
+                    list-style-type: none;
+
+                    a{
+                        color: gray;
+                        text-decoration: none;
+                        
+                        &:hover{
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        #hero {
+            display: grid;
+            grid-template-areas: "Stack";
+            width: 100%;
+            height: 50em;
+        }
+
+        #hero #details {   grid-area: Stack;
+            width: 100%;
+            height: 100%;
+            color: #3F260E;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2em;
+            font-size: 2em;
+        }
+
+        #hero #img {
+            grid-area: Stack;
+            width: 100%;
+            height: 100%;
+            background: url("https://cdn.pixabay.com/photo/2025/02/15/18/34/flowers-9409674_640.jpg");
+            background-repeat: repeat;
+            background-size: 20em;
+            background-position: center;
+            z-index: 0; 
+        }
+
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #about, #services{
+            width: 80%;
+            background-color: #222;
+            padding: 2em;
+        }
+
+        #services{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+            >div{
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 2em;
+                background-color: #333;
+                border-radius: 2em;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin: 2em;
+            width: 83.5%;
+            height: 20em;
+
+            > input{
+                color: white;
+                background-color: #222;
+
+                border: 0px;
+                padding: 1em;
+                margin: 1em 0em;
+                border-radius: 1em;
+            }
+        }
+
+        #inputs {
+            display: flex;
+            gap: 2em;
+            width: 100%;
+            height: 50px;
+            padding-bottom: 1em;
+        }
+
+        #inputs > * {
+            flex-grow: 1;
+            color: white;
+            background-color: #222;
+            border: 0px;
+            border-radius: 2em;
+            padding: 1em;
+        }
+
+        #textArea{
+            display: flex;
+        }
+
+        textArea {
+            flex-grow: 1;
+            height: 15em;
+            color: white;
+            background-color: #222;
+            border: 0px;
+            border-radius: 2em;
+            padding: 1em;
+        }
+
+        footer{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+    <header>
+        <nav>
+        <span>
+            <img src="https://cdn.svglogos.dev/logos/daisyUI-icon.svg" alt="LOGO"> 
+            <h2>Flowery</h2>
+        </span>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+                <div id="details">
+                    <h1>Flowery</h1>
+                    <h3>all the flowers you need in one place</h3>
+                </div>
+                <div id="img"></div>
+        </section>
+        <section id="about">
+            <h3>Who are we?</h3>
+            <p>We're Flowery—just a handful of florists who actually enjoy showing up to work.  We're people who know how to cut stems at the right angle and can tell you which flowers look good together without overthinking it. We drink too much coffee, we're covered in green bits by noon, and we genuinely think a well-made bouquet beats a text message every time.</p>
             <br>
+            <h3>What we do?</h3>
+            <p>We take fresh flowers, arrange them in ways that make sense (and look good), and deliver them to wherever they need to go. That's it. No gimmicks, no "curated experiences," no fancy buzzwords. Need a birthday bouquet? We've got you. Need an apology arrangement? Done. Need flowers just because you like looking at them? Also done. We keep it simple, we keep it fresh, and we don't overcomplicate a good thing.
+            </p>
+        </section>
+        <section id="services">
             <div>
-                <a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3School</a>
-                <a href="https://www.linkedin.com/in/youssef-amr-2ba9962b5" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="Tags.html" rel="noopener noreferrer" >Tags [from earlier]</a>
+                <h3>
+                    Same-Day Delivery Bouquets
+                </h3>
+                <p>
+                    Hand-arranged bouquets for birthdays, anniversaries, apologies, or just because. Order by noon, and we'll have them on someone's doorstep before they finish work. No fuss, no surprises—just flowers that show up on time. 
+                </p>
+            </div>
+            <div>
+                <h3>Custom Event Florals</h3>
+                <p>Weddings, dinners, corporate lunches, or whatever you're hosting. We'll work with your space, your colors, and your budget to create arrangements that don't scream for attention but definitely earn it. We set up, we clean up, we leave you looking good.</p>
+            </div>
+            <div>
+                <h3>Weekly Flower Subscriptions</h3>
+                <p>Fresh flowers delivered to your home or office every week. Same day, same time, zero thinking required. You get a rotating selection of what's freshest that week, and you never have to remember to buy flowers again. It's basically a flower autopilot.</p>
+            </div>
+            <div>
+                <h3>DIY Stem Bar</h3>
+                <p>For the people who want to do it themselves but don't want to buy fifty random stems from a grocery store. We supply a curated box of loose stems, greenery, and a simple guide. You get the creative part; we supply the stuff that doesn't look sad.</p>
             </div>
         </section>
-        <br>    
-        <hr>
-        <br>    
-            <section>
-                <div>
-                    <h3 style="margin-bottom: 1em;">Images Show case</h3>
-                    <div class="show-case">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPu6c1hQZRFjpXNhM1gFQl2sG3_6SWRA2G-TirPo8hZMUV6sEXCS_pNWDq&s=10" alt="image 1" title="a nice photo of a river" >
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH78XHI1UNu8bsPr3-bOrJ377Z5RpxUvK81LEqDDuGOCy9yIHCseFKnHo&s=10" alt="image 2" title="I call it ''the dark mountains''" >
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnUW8pgmtljbTNB9Jdie-dVVrpgOCWy1_bGzDgPwt6cQ&s" alt="image 3" title="city lights" >
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShCgeqotL5L3BpU8GEuUKEJsU5FcEhk4u-PEZHPtDL-ng05U3PKqFAfFE&s=10" alt="image 4" title="river dock" >
-                    </div>
-                </div>
-            </section>
-            <br>
-            <hr>
-            <br>
-            <section>
-                <div>
-                    <h3>Lists types</h3>
-                    <h4>Unordered lists</h4>
-                    <ul>
-                        <li>
-                            <h4>list item 1</h4>
-                        </li>
-                        <li>
-                            <h4>list item 2</h4>
-                        </li>
-                        <li>
-                            <h4>list item 3</h4>
-                        </li>
-                        <li>
-                            <h4>list item 4</h4>
-                        </li>
-                    </ul>
-                    <br>
-                    <h4>Ordered lists</h4>
-                    <ol>
-                        <li>
-                            <h4>HTML</h4>
-                        </li>
-                        <li>
-                            <h4>JavaScript</h4>
-                        </li>
-                        <li>
-                            <h4>CSS</h4>
-                        </li>
-                    </ol>
-                </div>
-            </section>
-            <br>
-            <hr>
-            <br>
-            <section>
-
-                <table>
-                    <th>Name</th>
-                    <th>Time</th>
-                    <th>Level</th>
-                    <tr>
-                        <td>Full Stack</td>
-                        <td>06:00PM</td>
-                        <td>beginner</td>
-                    </tr>
-                    <tr>
-                        <td>Full Stack</td>
-                        <td>09:00PM</td>
-                        <td>intermediate</td>
-                    </tr>
-                    <tr>
-                        <td>Full Stack</td>
-                        <td>11:00PM</td>
-                        <td>advanced</td>
-                    </tr>
-                </table>
-                <br>
-                <table>
-                    <th>Course name</th>
-                    <th>Time</th>
-                    <th>Level</th>
-                    <tr>
-                        <td>Web development</td>
-                        <td>08:00AM</td>
-                        <td>Third level</td>
-                    </tr>
-                    <tr>
-                        <td>Programming I</td>
-                        <td>04:00PM</td>
-                        <td>First level</td>
-                    </tr>
-                    <tr>
-                        <td>Linear algebra</td>
-                        <td>10:00AM</td>
-                        <td>Second level</td>
-                    </tr>
-                </table
-            </section>
-            <br>
-            <hr>
-            <br>
-            <section>
-
-                <form>
-                    <div>
-                        <h5>Username</h5>
-                        <input type="email" name="" id="email" placeholder="User@host.com">
-                    </div>
-                    <br>
-                    <div>
-                        <h5>password</h5>
-                        <input type="password" name="" id="password" placeholder="*********">
-                    </div>
-        
-                    <input type="submit" value="Login">
-                </form>
-                <br>
-        
-                <form>
-                    <div>
-                        <h5>Name</h5>
-                        <input type="text" name="" id="" placeholder="Youssef Amr">
-                    </div>
-                <br>
-        
-                    <div>
-                        <h5>tel</h5>
-                        <input type="number" name="" id="" placeholder="+02 *******123">
-                    </div>
-                <br>
-        
-                    <div>
-                        <h5>data of birth</h5>
-                        <input type="date" name="" id="" placeholder="12/12/2002">
-                    </div>
-                    <input type="submit" value="Login">
-                </form>
-            </section>
-            <br>
-            <hr>
-            <br>
-            <section>
-                <div>
-                    <label>choose country</label>
-                    <select name="" id="">
-                        <option value="egypt">Egypt</option>
-                        <option value="masr">Masr</option>
-                        <option value="UK">UK</option>
-                        <option value="USA">tdFileSelect multiple</option>
-                    </select>
-                </div>
-                <br>
-                <hr>
-                <br>
-                <div style="display: flex; flex-direction: column;">
-                    <label>leave a massage or feedback</label>
-                    <textarea style="width: 300px; height: 200px;">this product is very cool !!! \(0o0)/</textarea>
-                </div>
-            </section>
-            <br>
-            <hr>
-            <br>
-        </main>
-    </body>
-</html> 
+    </main>
+        <form>
+            <div id="inputs">
+                <input type="text" placeholder="Your name">
+                <input type="email" name="" id="" placeholder="username@gmail.com">
+            </div>
+            <div id="textArea">
+                <textarea>Tell us what's your favorite flower types</textarea>
+            </div>
+            <input type="submit" value="Send">
+        </form>
+        <footer>
+            <p>all rights reserved to Flowery 2026</p>
+        </footer>
+</body>
+</html>
