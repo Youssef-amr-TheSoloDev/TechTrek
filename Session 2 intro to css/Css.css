@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0.2em 0em;
+}
+
+body {
+    color: gray;
+    font-size: 22px;
+    background: linear-gradient(to top, #111, #222);
+    height: 100vh;
+    background-repeat: no-repeat;
+    font-family: "Tiny5", system-ui;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1em;
+}
+
+
+a{
+    color: #aaa;
+    text-decoration: none;
+
+    &:hover{
+        color: #fff;
+    }
+}
+
+h1{
+    background: linear-gradient(135deg, #ff9a00, #ffd900);
+    color: transparent;
+    background-clip: text;
+}
