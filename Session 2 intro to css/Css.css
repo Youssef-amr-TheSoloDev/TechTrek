@@ -33,4 +33,39 @@ h1{
     background: linear-gradient(135deg, #ff9a00, #ffd900);
     color: transparent;
     background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.paragraph{
+    animation: infinite 1s paragraphColors;
+    -webkit-animation: infinite 1s paragraphColors;
+}
+
+@keyframes paragraphColors{
+    0%{
+        color: gray;
+    }
+
+    50%{
+        color: white;
+    }
+
+    100%{
+        color: gray;
+    }
+}
+
+#list{
+    display: flex;
+    gap: 1em;
+    padding: 2em;
+    list-style-type: none;
+
+    > * {
+        text-align: center;
+        cursor: pointer;
+        &:hover{
+            color: #eee;
+        }
+    }
 }
