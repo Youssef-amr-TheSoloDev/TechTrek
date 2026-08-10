@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="projectStyle.css">
+    <title>session 3 project</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Simple Greeting</h1>
+            <input type="text" id="name-Input" placeholder="eg. Youssef Amr">
+            <input type="button" value="Greet Me" onclick="GreetUser()">
+            <h4 id="name-output"></h4>
+        </div>
+        <div class="card">
+            <h1>Counter</h1>
+            <h4 id="counter-output">00</h4>
+            <div class="btn-container">
+                <input type="button" value="increase" onclick="increaseCounter()">
+                <input type="button" value="decrease" onclick="decreaseCounter()">
+            </div>
+        </div>
+        <div class="card">
+            <h1>Change Background Color</h1>
+            <input type="button" value="Change Color" onclick="ChangeBackgroundColor()">
+        </div>
+    </div>
+
+    <script defer>
+        let nameInput = undefined;
+        let NameOutput = undefined;
+
+        let CounterOutput = undefined;
+        let CounterValue = 0;
+
+        let TimeoutId = 0;
+
+        const bgColor = '#add8e6';
+        const otherBgColor = '#9b63c0';
+
+        document.addEventListener("DOMContentLoaded", (e) => {
+            nameInput = document.getElementById("name-Input");
+            NameOutput = document.getElementById("name-output");
+            CounterOutput = document.getElementById("counter-output");
+        });
+
+        function GreetUser() {
+            if (nameInput.value.length == 0) return;
+            NameOutput.innerHTML = `Hello ${nameInput.value}!`;
+        }
+
+        function increaseCounter() {
+            CounterValue += 1;
+            UpdateCounterValue();
+        }
+
+        function decreaseCounter() {
+            if (CounterValue <= 0) {
+                CounterValue = 0;
+                return;
+            }
+
+            CounterValue -= 1;
+            UpdateCounterValue();
+        }
+
+        function UpdateCounterValue() {
+            CounterOutput.innerHTML = CounterValue;
+        }
+
+        function ChangeBackgroundColor() {
+            document.body.style.backgroundColor = otherBgColor;
+            clearTimeout(TimeoutId);
+            setTimeout(() => {
+                document.body.style.backgroundColor = bgColor;
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>

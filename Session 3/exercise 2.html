@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+</head>
+
+<body>
+    <div class="name-container">
+        <h1>whats your name?</h1>
+        <input type="button" value="Enter name" onclick="ShowName()">
+    </div>
+    <script defer>
+        function ShowName() {
+            let name = prompt("Enter your name:")
+            alert(`Hello ${name}!`);
+        }
+    </script>
+</body>
+
+</html>
