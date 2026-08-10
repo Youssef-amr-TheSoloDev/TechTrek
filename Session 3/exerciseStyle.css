@@ -51,7 +51,7 @@ body{
     justify-content: center;
     align-items: center;
 
-    background: radial-gradient(11em, #111, transparent);
+    /* background: radial-gradient(11em, #111, transparent); */
     height: 20em;
     gap: 2em;
 
@@ -80,7 +80,7 @@ body{
      
         border: solid #aaa 2px;
         border-radius: 1em;
-        
+
         &:hover{
             border: solid #fff 2px;
             color: #fff;
@@ -106,7 +106,7 @@ body{
         -moz-border-radius: 1em;
         -ms-border-radius: 1em;
         -o-border-radius: 1em;
-}
+    }
 }
 
 
