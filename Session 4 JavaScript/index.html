@@ -5,10 +5,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        body {
+            background: #fff;
+            color: #212529;
+            padding-top: 70px;
+        }
+
+        .hero {
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .services .card {
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
 
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top p-3">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">TechTrek</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                    aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto gap-3">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="container">
+                <h1 class="display-5 fw-bold">Learn Front-end</h1>
+                <p class="lead text-muted">Start your journey</p>
+            </div>
+        </div>
+
+        <div class="services py-4">
+            <div class="container">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card p-3 shadow-sm h-100">
+                            <h5 class="card-title">HTML</h5>
+                            <p class="text-muted">Page structure</p>
+                            <a class="btn btn-outline-primary" href="#">Learn now</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-3 shadow-sm h-100">
+                            <h5 class="card-title">CSS</h5>
+                            <p class="text-muted">The page's beauty</p>
+                            <a class="btn btn-outline-primary" href="#">Learn now</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-3 shadow-sm h-100">
+                            <h5 class="card-title">JavaScript</h5>
+                            <p class="text-muted">Make the page functional</p>
+                            <a class="btn btn-outline-primary" href="#">Learn now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Course Registration</h3>
+                    <form class="px-3">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="you@example.com" required>
+                            <div class="form-text">We won't share your email with anyone.</div>
+                        </div>
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light border-top mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h6 class="fw-bold">TechTrek</h6>
+                    <p class="text-muted small">Learn front-end development with our comprehensive courses.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold">Quick Links</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Courses</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold">Contact</h6>
+                    <p class="text-muted small">Email: info@techtrek.com<br>Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="text-muted small mb-0">&copy; 2026 TechTrek. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
