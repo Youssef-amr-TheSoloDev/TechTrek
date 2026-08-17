@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Hub – Learn Anything</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Course Hub</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#numbers">Stats</a></li>
+                <li><a href="#enroll">Enroll</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Unlock Your <br /><span>Learning Potential</span></h1>
+                <p>
+                    Join thousands of learners and master new skills with
+                    expert-led courses. Start your journey today.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Explore Courses
+                    </a>
+                    <a href="#enroll" class="btn btn-secondary">
+                        <i class="fas fa-user-plus"></i> Enroll Now
+                    </a>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== COURSES ========== -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span>Courses</span></h2>
+                <p>Handpicked courses to accelerate your career</p>
+            </div>
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Dynamically injected by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NUMBERS / STATS ========== -->
+    <section class="numbers" id="numbers">
+        <div class="container numbers-container">
+            <div class="stat-item">
+                <div class="stat-number" data-target="5000">0</div>
+                <div class="stat-label">Students</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="120">0</div>
+                <div class="stat-label">Courses</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="45">0</div>
+                <div class="stat-label">Instructors</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="96">0</div>
+                <div class="stat-label">Satisfaction %</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ENROLLMENT FORM ========== -->
+    <section class="enroll" id="enroll">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to <span>Enroll?</span></h2>
+                <p>Fill in the details and we'll get you started</p>
+            </div>
+            <div class="enroll-wrapper">
+                <form class="enroll-form" id="enrollForm">
+                    <div class="form-group">
+                        <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="fullName" placeholder="e.g. Alex Johnson" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" placeholder="alex@example.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="courseSelect"><i class="fas fa-book-open"></i> Select Course</label>
+                        <select id="courseSelect" required>
+                            <option value="">— Choose a course —</option>
+                            <!-- Dynamically populated by JavaScript -->
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-paper-plane"></i> Enroll Now
+                    </button>
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Course Hub</span>
+                </div>
+                <p>Empowering learners worldwide with top-notch education.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#numbers">Stats</a></li>
+                    <li><a href="#enroll">Enroll</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Learning Ave, NY</li>
+                    <li><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> hello@coursehub.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 <span>Course Hub</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== EXTERNAL JAVASCRIPT ========== -->
+    <script src="script.js"></script>
+</body>
+
+</html>
