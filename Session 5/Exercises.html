@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercises</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <label for="">
+                username
+            </label>
+            <input type="text" name="username" id="username">
+            <p id="username-warning" style="color: red;"></p>
+        </div>
+        <div>
+            <label for="password">
+                password
+            </label>
+            <input type="password" name="password" id="password">
+            <p id="password-warning" style="color: red;"></p>
+        </div>
+        <input type="button" value="submit" onclick="loginValidation()">
+    </div>
+
+
+    <div style="display: flex; gap: 1em;">
+        <label for="grade">Enter grade: </label>
+        <input type="number" name="" id="grade" placeholder="40">
+        <input type="button" value="evaluate" onclick="verifyGrade()">
+
+        <h3 id="grade-out"></h3>
+    </div>
+
+
+    <script>
+        let username = document.getElementById('username');
+        let password = document.getElementById('password');
+
+        let usernameWarning = document.getElementById('username-warning');
+        let passwordWarning = document.getElementById('password-warning');
+
+        function loginValidation() {
+            usernameWarning.textContent = username.value === '' ? "please, full out the username" : ''
+
+            passwordWarning.textContent = password.value === "" ? "please, full out the password" : '';
+        }
+
+        let gradeOut = document.getElementById("grade-out");
+        let gradeIn = document.getElementById("grade");
+
+        function verifyGrade() {
+            grade = gradeIn.value;
+            switch (true) {
+                case grade < 40:
+                    gradeOut.textContent = "Grade is Fail";
+                    break;
+                case grade < 60:
+                    gradeOut.textContent = "Grade is Pass";
+                    break;
+                case grade < 80:
+                    gradeOut.textContent = "Grade is Good";
+                    break;
+                case grade < 95:
+                    gradeOut.textContent = "Grade is Excellent";
+                    break;
+                default:
+                    gradeOut.textContent = "Grade is Outstanding";
+                    break;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Session 5 JS</title>
+</head>
+
+<body>
+    <h1 id="title" class="title">Hello from JavaScript</h1>
+    <h3>using tags to get elements</h3>
+    <p class="students">get element by class</p>
+
+    <br>
+    <hr>
+    <br>
+
+    <form action="" onsubmit="VerifyForm()" style="display: flex; flex-direction: column; width: 30em; gap: 1em;">
+        <label for="username">UserName</label>
+        <input type="text" name="" placeholder="Youssef Amr" id="username">
+        <input type="password" name="" id="password">
+        <input type="submit" value="submit">
+    </form>
+
+    <label for="">change color</label><input type="button" value="change" onclick="changecolor()">
+
+    <div class="box">
+        <h3>box</h3>
+    </div>
+
+    <input type="button" value="click me to register event" id="btn">
+
+    <div style="display: flex; gap: 1em;"><label for="age">Enter age</label><input type="number" name="" id="age"><input
+            type="button" value="enter" onclick="VerifyAge()">
+    </div>
+    <div id="age-out"></div>
+
+
+    <script>
+
+        function VerifyForm() {
+            let username = document.getElementById("username");
+            let password = document.getElementById("password");
+
+            console.log(username.value);
+            console.log(password.value);
+
+        }
+
+        function add(x, y) {
+            return x + y;
+        }
+
+        console.log(add(1, 4));
+
+
+        function changecolor() {
+            document.body.style.backgroundColor('fff');
+        }
+
+
+        let box = document.querySelector(".box");
+        box.addEventListener("mouseover", () => { box.style.backgroundColor = 'yellow'; });
+        box.addEventListener("mouseout", () => { box.style.backgroundColor = 'white'; });
+
+        let btn = document.querySelector("#btn");
+        btn.addEventListener("click", (ev) => { console.log(ev); });
+
+
+        let ageInput = undefined;
+        let ageOutput = undefined;
+
+
+        document.addEventListener("DOMContentLoaded", (ev) => {
+
+            let ageInput = document.getElementById("age");
+            let ageOutput = document.getElementById("age-out");
+
+
+        })
+
+        function VerifyAge() {
+            const age = ageInput.value;
+            const status = CheckAge(age);
+
+            ageOutput.innerHTML = `<h2>Age is ${age} ${status ? 'allowed' : 'not allowed'} to sub</h2>`;
+        }
+
+        function CheckAge(age) {
+            if (age >= 18) return true;
+            return false;
+        }
+
+        let gradeOut = document.getElementById("grade-out");
+        let gradeIn = document.getElementById("grade");
+
+        function verifyGrade() {
+            grade = gradeIn.value;
+            switch (true) {
+                case grade < 40:
+                    gradeOut.textContent = "Grade is Fail";
+                    break;
+                case grade < 60:
+                    gradeOut.textContent = "Grade is Pass";
+                    break;
+                case grade < 80:
+                    gradeOut.textContent = "Grade is Good";
+                    break;
+                case grade < 95:
+                    gradeOut.textContent = "Grade is Excellent";
+                    break;
+                default:
+                    gradeOut.textContent = "Grade is Outstanding";
+                    break;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

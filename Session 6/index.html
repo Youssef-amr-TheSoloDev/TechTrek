@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Session 6 JS</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="" id="price" placeholder="Price" onchange="CalculateTotalPrice()">
+        <input type="number" name="" id="quantity" placeholder="2" onchange="CalculateTotalPrice()">
+        <input type="button" value="Buy" id="OfferBtn">
+
+        <br>
+        <div style="flex-direction: row; gap: 2em; align-items: center; justify-content: center;">
+            <h1 id="Save" style="color: greenyellow"></h1>
+            <h2 id="TotalPrice" style="color: #eee;">0$</h2>
+        </div>
+    </div>
+
+    <script>
+        let offerCodeInput = document.getElementById("price");
+        let quantityInput = document.getElementById("quantity");
+        let SavePercentage = document.getElementById("Save");
+        let TotalPrice = document.getElementById("TotalPrice");
+
+        let TotalProductsPrice = 0;
+        const offerPrice = 500;
+
+        function CalculateTotalPrice() {
+            TotalProductsPrice = Number(offerCodeInput.value) * Number(quantityInput.value);
+
+            UpdatePriceOutput();
+            console.log(`${TotalProductsPrice} = ${offerCodeInput.value} * ${quantityInput.value}`);
+        }
+
+        function UpdatePriceOutput() {
+
+            if (TotalProductsPrice >= offerPrice) {
+                SavePercentage.textContent = `15%`;
+                TotalPrice.textContent = (0.85 * TotalProductsPrice) + "$";
+                return;
+            }
+            else {
+                SavePercentage.textContent = '';
+            }
+
+            TotalPrice.textContent = TotalProductsPrice + "$";
+        }
+
+        let i = 10;
+        while (i !== 0) {
+            console.log(i--);
+
+            document.body.innerHTML += `<p>${i}</p>`
+        }
+
+        let users = [
+            {
+                Name: "Youssef",
+                Level: "Forth",
+                Grade: 90,
+                course: "javaScript",
+                age: 22
+            },
+            {
+                Name: "Mohamed",
+                Level: "Second",
+                Grade: 49,
+                course: "HTML",
+                age: 20
+            },
+            {
+                Name: "Mostafa",
+                Level: "First",
+                Grade: 88,
+                course: "CSS",
+                age: 19
+            },
+            {
+                Name: "Ahmed",
+                Level: "Forth",
+                Grade: 95,
+                course: "Angular",
+                age: 21
+            },
+            {
+                Name: "Mona",
+                Level: "Third",
+                Grade: 31,
+                course: ".Net",
+                age: 20
+            }
+        ]
+
+        for (let idx = 0; idx < users.length; idx++) {
+            console.log(users[idx]);
+        }
+        console.log("# of users: " + users.length);
+
+        console.log(users.map(function (user) {
+            return Number(user.Grade) * 0.9;
+        }));
+
+        console.log(users.filter(function (user) {
+            return Number(user.Grade) > 80;
+        }));
+
+        console.log("Total of grades: " + users.reduce(function (acc, user) {
+            acc += Number(user.Grade);
+            return acc;
+        }, 0))
+
+        let arr = [5, 12, 3, 20, 15];
+        console.log(arr.filter(function (n) { return n > 10 }));
+
+        users.forEach(user => {
+            if (user.Grade >= 50) {
+                console.log(`${user.Name} Passed`);
+            } else {
+                console.log(`${user.Name} Failed`);
+            }
+        });
+
+        let Products = [
+
+            {
+                Name: "Wireless Bluetooth Earbuds",
+                Price: 29.99
+            },
+            {
+                Name: "Stainless Steel Water Bottle",
+                Price: 15.50
+            },
+            {
+                Name: "Organic Cotton T-Shirt",
+                Price: 24.00
+            },
+            {
+                Name: "Smartphone Ring Light",
+                Price: 12.75
+            },
+            {
+                Name: "Bamboo Cutting Board",
+                Price: 18.90
+            },
+            {
+                Name: "Yoga Mat with Carry Strap",
+                Price: 35.00
+            },
+            {
+                Name: "Reusable Grocery Tote Set",
+                Price: 9.99
+            },
+            {
+                Name: "Desk LED Lamp with USB Port",
+                Price: 27.45
+            },
+            {
+                Name: "Ceramic Coffee Mug Set (4pc)",
+                Price: 21.30
+            },
+            {
+                Name: "Portable Power Bank 10000mAh",
+                Price: 19.99
+            }
+
+        ]
+
+        Products.forEach((product) => {
+            // if (product.Price > 20) {
+            //     console.log(`${product.Name} is ${product.Price}$ therefore it Won`);
+            // } else {
+            //     // console.log(`*${product.Name}* is ${product.Price}$ therefore it lost`);
+            // }
+
+            document.body.innerHTML += `
+            
+            <div>
+                <h2>
+                    ${product.Name}
+                </h2>
+                <h3>${product.Price}$</h3>
+            </div>
+            `;
+        });
+
+    </script>
+</body>
+
+</html>

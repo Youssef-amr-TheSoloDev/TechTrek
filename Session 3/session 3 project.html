@@ -29,57 +29,6 @@
             <input type="button" value="Change Color" onclick="ChangeBackgroundColor()">
         </div>
     </div>
-
-    <script defer>
-        let nameInput = undefined;
-        let NameOutput = undefined;
-
-        let CounterOutput = undefined;
-        let CounterValue = 0;
-
-        let TimeoutId = 0;
-
-        const bgColor = '#add8e6';
-        const otherBgColor = '#9b63c0';
-
-        document.addEventListener("DOMContentLoaded", (e) => {
-            nameInput = document.getElementById("name-Input");
-            NameOutput = document.getElementById("name-output");
-            CounterOutput = document.getElementById("counter-output");
-        });
-
-        function GreetUser() {
-            if (nameInput.value.length == 0) return;
-            NameOutput.innerHTML = `Hello ${nameInput.value}!`;
-        }
-
-        function increaseCounter() {
-            CounterValue += 1;
-            UpdateCounterValue();
-        }
-
-        function decreaseCounter() {
-            if (CounterValue <= 0) {
-                CounterValue = 0;
-                return;
-            }
-
-            CounterValue -= 1;
-            UpdateCounterValue();
-        }
-
-        function UpdateCounterValue() {
-            CounterOutput.innerHTML = CounterValue;
-        }
-
-        function ChangeBackgroundColor() {
-            document.body.style.backgroundColor = otherBgColor;
-            clearTimeout(TimeoutId);
-            setTimeout(() => {
-                document.body.style.backgroundColor = bgColor;
-            }, 2000);
-        }
-    </script>
 </body>
 
 </html>

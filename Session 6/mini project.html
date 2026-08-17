@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session 6 Mini Project</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+
+<body class="bg-white">
+    <div class="container-fluid>
+        <div class=" row mb-4">
+        <div class="col-12">
+            <h1 class="h4 fw-normal text-secondary mb-0">
+                <i class="bi bi-people me-2 text-secondary" style="opacity:0.5;"></i>
+                Session 6 Mini Project: Student Directory
+            </h1>
+            <hr class="my-2 opacity-25" />
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-12 col-lg-8 col-xl-7">
+
+            <div class="card border-0 shadow-sm p-3 p-sm-4 rounded-4 bg-white">
+
+                <div class="row g-2 align-items-center">
+
+                    <div class="col-12 col-sm">
+                        <input type="text" class="form-control rounded-pill py-2 px-3 bg-light border-0" id="search"
+                            placeholder="Search by name or course…" autofocus onchange="Search()" />
+                    </div>
+
+                    <div class="col-12 col-sm-auto">
+                        <button class="btn btn-light border rounded-pill px-4 py-2 fw-semibold w-100" id="searchBtn"
+                            onclick="Search()">
+                            <i class="bi bi-search me-1"></i> Search
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="mt-2">
+                    <small class="text-secondary-emphasis" style="opacity:0.65; font-size:0.75rem;">
+                        <i class="bi bi-info-circle me-1"></i> Try "Computer", "Biology", or "James"
+                    </small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-8 col-xl-7">
+
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="badge bg-light text-dark rounded-pill px-4 py-2 fw-normal">
+                    <i class="bi bi-mortarboard me-1"></i>
+                    Students &middot; <span id="StudentCount" class="fw-semibold">0000</span>
+                </span>
+            </div>
+
+            <div class="bg-light rounded-4 p-4 border-0" style="min-height:160px;">
+                <div id="searchOut">
+                    <span class="text-secondary-emphasis" style="opacity:0.6;">
+                        <i class="bi bi-search me-1"></i> Enter a term and press Search.
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+        const SearchText = document.getElementById("search");
+        const SearchOut = document.getElementById("searchOut");
+        const StudentNumber = document.getElementById("StudentCount");
+
+        const students = [
+            { id: 1, name: "Emma Johnson", age: 20, course: "Computer Science", grade: 85 },
+            { id: 2, name: "Liam Smith", age: 22, course: "Engineering", grade: 78 },
+            { id: 3, name: "Olivia Brown", age: 19, course: "Biology", grade: 92 },
+            { id: 4, name: "Noah Williams", age: 21, course: "Mathematics", grade: 74 },
+            { id: 5, name: "Ava Jones", age: 20, course: "Physics", grade: 88 },
+            { id: 6, name: "James Miller", age: 23, course: "Computer Science", grade: 63 },
+            { id: 7, name: "Sophia Davis", age: 18, course: "Chemistry", grade: 95 },
+            { id: 8, name: "Benjamin Garcia", age: 22, course: "Engineering", grade: 71 },
+            { id: 9, name: "Mia Rodriguez", age: 19, course: "Biology", grade: 82 },
+            { id: 10, name: "Lucas Martinez", age: 21, course: "Mathematics", grade: 79 },
+            { id: 11, name: "Charlotte Wilson", age: 20, course: "Physics", grade: 91 },
+            { id: 12, name: "Henry Anderson", age: 24, course: "Computer Science", grade: 67 },
+            { id: 13, name: "Amelia Thomas", age: 19, course: "Chemistry", grade: 88 },
+            { id: 14, name: "Alexander Taylor", age: 22, course: "Engineering", grade: 76 },
+            { id: 15, name: "Harper Moore", age: 20, course: "Biology", grade: 93 },
+            { id: 16, name: "Michael Jackson", age: 21, course: "Mathematics", grade: 70 },
+            { id: 17, name: "Evelyn Martin", age: 18, course: "Physics", grade: 86 },
+            { id: 18, name: "Daniel Lee", age: 23, course: "Computer Science", grade: 81 },
+            { id: 19, name: "Abigail Perez", age: 19, course: "Chemistry", grade: 77 },
+            { id: 20, name: "Matthew Thompson", age: 22, course: "Engineering", grade: 89 },
+            { id: 21, name: "Emily White", age: 20, course: "Biology", grade: 65 },
+            { id: 22, name: "David Harris", age: 21, course: "Mathematics", grade: 94 },
+            { id: 23, name: "Ella Sanchez", age: 19, course: "Physics", grade: 73 },
+            { id: 24, name: "Joseph Clark", age: 24, course: "Computer Science", grade: 87 },
+            { id: 25, name: "Grace Ramirez", age: 22, course: "Chemistry", grade: 80 },
+            { id: 26, name: "Samuel Lewis", age: 20, course: "Engineering", grade: 68 },
+            { id: 27, name: "Scarlett Robinson", age: 18, course: "Biology", grade: 96 },
+            { id: 28, name: "John Walker", age: 21, course: "Mathematics", grade: 75 },
+            { id: 29, name: "Victoria Young", age: 23, course: "Physics", grade: 84 },
+            { id: 30, name: "Andrew Allen", age: 19, course: "Computer Science", grade: 90 },
+            { id: 31, name: "Madison King", age: 22, course: "Chemistry", grade: 72 },
+            { id: 32, name: "Joshua Wright", age: 20, course: "Engineering", grade: 83 },
+            { id: 33, name: "Lily Scott", age: 21, course: "Biology", grade: 78 },
+            { id: 34, name: "Christopher Green", age: 24, course: "Mathematics", grade: 66 },
+            { id: 35, name: "Chloe Baker", age: 18, course: "Physics", grade: 92 },
+            { id: 36, name: "Isaac Adams", age: 22, course: "Computer Science", grade: 77 },
+            { id: 37, name: "Penelope Nelson", age: 19, course: "Chemistry", grade: 85 },
+            { id: 38, name: "Nathan Carter", age: 23, course: "Engineering", grade: 74 },
+            { id: 39, name: "Zoe Mitchell", age: 20, course: "Biology", grade: 89 },
+            { id: 40, name: "Caleb Perez", age: 21, course: "Mathematics", grade: 71 },
+            { id: 41, name: "Hannah Roberts", age: 19, course: "Physics", grade: 93 },
+            { id: 42, name: "Ryan Turner", age: 22, course: "Computer Science", grade: 68 },
+            { id: 43, name: "Nora Phillips", age: 20, course: "Chemistry", grade: 86 },
+            { id: 44, name: "Jacob Campbell", age: 24, course: "Engineering", grade: 79 },
+            { id: 45, name: "Layla Parker", age: 18, course: "Biology", grade: 97 },
+            { id: 46, name: "Ethan Evans", age: 21, course: "Mathematics", grade: 64 },
+            { id: 47, name: "Aria Edwards", age: 23, course: "Physics", grade: 82 },
+            { id: 48, name: "Logan Collins", age: 19, course: "Computer Science", grade: 88 },
+            { id: 49, name: "Eleanor Stewart", age: 22, course: "Chemistry", grade: 75 },
+            { id: 50, name: "Luke Morris", age: 20, course: "Engineering", grade: 91 },
+            { id: 51, name: "Gabriella Murphy", age: 21, course: "Biology", grade: 70 },
+            { id: 52, name: "Jack Rivera", age: 24, course: "Mathematics", grade: 83 },
+            { id: 53, name: "Sofia Cook", age: 18, course: "Physics", grade: 94 },
+            { id: 54, name: "Owen Morgan", age: 22, course: "Computer Science", grade: 69 },
+            { id: 55, name: "Avery Bell", age: 19, course: "Chemistry", grade: 87 },
+            { id: 56, name: "Sebastian Cooper", age: 23, course: "Engineering", grade: 76 },
+            { id: 57, name: "Mila Richardson", age: 20, course: "Biology", grade: 90 },
+            { id: 58, name: "Dylan Cox", age: 21, course: "Mathematics", grade: 73 },
+            { id: 59, name: "Aubrey Ward", age: 19, course: "Physics", grade: 84 },
+            { id: 60, name: "Mason Peterson", age: 22, course: "Computer Science", grade: 78 },
+            { id: 61, name: "Zoey Gray", age: 20, course: "Chemistry", grade: 92 },
+            { id: 62, name: "Logan James", age: 24, course: "Engineering", grade: 65 },
+            { id: 63, name: "Luna Hayes", age: 18, course: "Biology", grade: 95 },
+            { id: 64, name: "Carter Price", age: 21, course: "Mathematics", grade: 72 },
+            { id: 65, name: "Eli Barnes", age: 23, course: "Physics", grade: 88 },
+            { id: 66, name: "Aurora Foster", age: 19, course: "Computer Science", grade: 81 },
+            { id: 67, name: "Grayson Ross", age: 22, course: "Chemistry", grade: 74 },
+            { id: 68, name: "Leah Torres", age: 20, course: "Engineering", grade: 85 },
+            { id: 69, name: "Wyatt Butler", age: 21, course: "Biology", grade: 79 },
+            { id: 70, name: "Ellie Sanders", age: 24, course: "Mathematics", grade: 67 },
+            { id: 71, name: "Jordan Powell", age: 18, course: "Physics", grade: 93 },
+            { id: 72, name: "Paisley Sullivan", age: 22, course: "Computer Science", grade: 76 },
+            { id: 73, name: "Evan Hayes", age: 19, course: "Chemistry", grade: 82 },
+            { id: 74, name: "Hazel Myers", age: 23, course: "Engineering", grade: 89 },
+            { id: 75, name: "Connor Ford", age: 20, course: "Biology", grade: 71 },
+            { id: 76, name: "Violet Henderson", age: 21, course: "Mathematics", grade: 86 },
+            { id: 77, name: "Cole Bryant", age: 24, course: "Physics", grade: 64 },
+            { id: 78, name: "Stella Barnes", age: 18, course: "Computer Science", grade: 98 },
+            { id: 79, name: "Jeremiah Martinez", age: 22, course: "Chemistry", grade: 77 },
+            { id: 80, name: "Nova Patterson", age: 19, course: "Engineering", grade: 84 },
+            { id: 81, name: "Adam Kim", age: 23, course: "Biology", grade: 73 },
+            { id: 82, name: "Audrey Jenkins", age: 20, course: "Mathematics", grade: 90 },
+            { id: 83, name: "Nathaniel White", age: 21, course: "Physics", grade: 69 },
+            { id: 84, name: "Lillian Myers", age: 24, course: "Computer Science", grade: 80 },
+            { id: 85, name: "Josiah Hart", age: 18, course: "Chemistry", grade: 91 },
+            { id: 86, name: "Addison Miller", age: 22, course: "Engineering", grade: 75 },
+            { id: 87, name: "Gavin Murphy", age: 19, course: "Biology", grade: 87 },
+            { id: 88, name: "Elena Foster", age: 23, course: "Mathematics", grade: 72 },
+            { id: 89, name: "Oliver Wright", age: 20, course: "Physics", grade: 94 },
+            { id: 90, name: "Natalie Reed", age: 21, course: "Computer Science", grade: 68 },
+            { id: 91, name: "Charles Bailey", age: 24, course: "Chemistry", grade: 83 },
+            { id: 92, name: "Lucy Brooks", age: 18, course: "Engineering", grade: 96 },
+            { id: 93, name: "Patrick Griffin", age: 22, course: "Biology", grade: 70 },
+            { id: 94, name: "Bella Howard", age: 19, course: "Mathematics", grade: 89 },
+            { id: 95, name: "Eli Robinson", age: 23, course: "Physics", grade: 66 },
+            { id: 96, name: "Camila Flores", age: 20, course: "Computer Science", grade: 85 },
+            { id: 97, name: "Anthony Wood", age: 21, course: "Chemistry", grade: 78 },
+            { id: 98, name: "Maya Barnes", age: 24, course: "Engineering", grade: 74 },
+            { id: 99, name: "Hunter Nelson", age: 18, course: "Biology", grade: 92 },
+            { id: 100, name: "Samantha Price", age: 22, course: "Mathematics", grade: 81 },
+            { id: 101, name: "Austin Mitchell", age: 19, course: "Physics", grade: 87 },
+            { id: 102, name: "Ariana Cooper", age: 23, course: "Computer Science", grade: 76 },
+            { id: 103, name: "Dylan Ross", age: 20, course: "Chemistry", grade: 90 }
+        ];
+
+        function renderStudents(list) {
+            if (list.length === 0) {
+                SearchOut.innerHTML = `
+                        <div class="text-secondary-emphasis" style="opacity:0.6;">
+                            <i class="bi bi-inbox me-1"></i> No students match your search.
+                        </div>
+                    `;
+            } else {
+                let html = '<div class="d-flex flex-column gap-3">';
+                list.forEach(s => {
+                    html += `
+                            <div class="card border-0 shadow-sm p-3 rounded-4 bg-white">
+                                <div class="row align-items-center g-2">
+                                    <div class="col-md-6">
+                                        <h5 class="fw-semibold mb-0">${s.name}</h5>
+                                        <span class="badge bg-light text-secondary fw-normal rounded-pill me-1">Age ${s.age}</span>
+                                        <span class="badge bg-light text-secondary fw-normal rounded-pill">${s.course}</span>
+                                    </div>
+                                    <div class="col-md-4 text-md-end">
+                                        <span class="fw-bold text-primary">${s.grade}%</span>
+                                    </div>
+                                    <div class="col-md-2 text-md-end">
+                                        <button class="btn btn-outline-danger btn-sm rounded-pill px-3" 
+                                                onclick="deleteStudent(${s.id})">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                });
+                html += '</div>';
+                SearchOut.innerHTML = html;
+            }
+
+            StudentNumber.textContent = String(list.length).padStart(4, '0');
+        }
+
+        function Search() {
+            const query = SearchText.value.trim().toLowerCase();
+            let filtered = students;
+
+            if (query) {
+                filtered = students.filter(s =>
+                    s.name.toLowerCase().includes(query) ||
+                    s.course.toLowerCase().includes(query)
+                );
+            }
+
+            renderStudents(filtered);
+        }
+
+        function deleteStudent(id) {
+            const idx = students.findIndex(s => s.id === id);
+            if (idx !== -1) {
+                students.splice(idx, 1);
+                Search();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            SearchText.value = '';
+            Search();
+        });
+    </script>
+
+</body>
+
+</html>
