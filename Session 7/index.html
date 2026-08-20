@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTrek Test Site</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="eyebrow">TechTrek • Session 7</div>
+        <h1>Welcome to the test site</h1>
+        <p>A small, responsive page for testing HTML, CSS, and JavaScript interactions.</p>
+
+        <section class="test-box" aria-labelledby="test-heading">
+            <h2 id="test-heading">Interaction test</h2>
+            <label for="name">Enter your name</label>
+            <input id="name" type="text" placeholder="e.g. Alex">
+            <button id="greet" type="button">Test button</button>
+            <p id="result" role="status"></p>
+        </section>
+        <section>
+            <div class="product-grid">
+                <article class="card">
+                    <h3>Starter Kit</h3>
+                    <p>Basic tools for first-time learners.</p>
+                    <span>$29</span>
+                </article>
+                <article class="card">
+                    <h3>Pro Bundle</h3>
+                    <p>Expanded features for hands-on practice.</p>
+                    <span>$59</span>
+                </article>
+                <article class="card">
+                    <h3>Workshop Set</h3>
+                    <p>Everything needed for collaborative projects.</p>
+                    <span>$79</span>
+                </article>
+                <article class="card">
+                    <h3>Design Pack</h3>
+                    <p>Creative assets for mockups and prototypes.</p>
+                    <span>$49</span>
+                </article>
+                <article class="card">
+                    <h3>Analytics Add-on</h3>
+                    <p>Insights and reporting tools for testing.</p>
+                    <span>$39</span>
+                </article>
+                <article class="card">
+                    <h3>Launch Plan</h3>
+                    <p>Support for deploying and tracking final builds.</p>
+                    <span>$89</span>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelector('#greet').addEventListener('click', () => {
+            const name = document.querySelector('#name').value.trim();
+            document.querySelector('#result').textContent = name
+                ? `Hello, ${name}! The test passed.`
+                : 'Please enter a name to test the button.';
+        });
+    </script>
+</body>
+
+</html>
