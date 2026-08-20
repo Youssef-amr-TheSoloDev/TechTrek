@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>session 7 project</title>
+</head>
+
+<body>
+    <header>
+        <h3 class="eyebrow">Product catalogue</h3>
+        <hr class="eyebrow">
+    </header>
+    <main>
+        <section id="search">
+            <div class="search-holder">
+                <input type="text" name="" class="test-box" placeholder="Search" id="Search-input"
+                    oninput="SearchForProduct()">
+                <span>
+                    <label>filter by category</label>
+                    <select id="category-filter-options" oninput="filterBuyCategory()" class="test-box">
+                    </select>
+                </span>
+            </div>
+            <input type="button" value="remove filter" id="apply-filter-btn" onclick="removeFilter()">
+        </section>
+        <section id="products">
+            <div id="stats">
+                <p id="product-count">products: 0000</p>
+                <hr class="eyebrow">
+            </div>
+            <div id="product-display" class="product-grid ">
+
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -57,6 +57,7 @@ main:hover {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
 h1 {
   margin: 8px 0;
   font-size: clamp(2rem, 5vw, 3.5rem);
