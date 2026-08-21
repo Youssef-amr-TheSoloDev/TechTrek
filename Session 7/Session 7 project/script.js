@@ -438,7 +438,7 @@ function UpdateProductDisplay(r){
                     <p>${category}</p>
                     <span class="rate">
                         <p>${rating}</p>
-                        <img src="./assets/star full.png">
+                        <img src="./assets/star.png">
                     </span>
                 </div>
                 <div>
