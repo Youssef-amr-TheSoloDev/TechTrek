@@ -48,3 +48,8 @@ console.log(r, b, g)
 
 let old_courses = ["html", "css"];
 let new_courses = [...old_courses, "javaScript"];
+
+
+console.log(
+    fetch("https://jsonplaceholder.typicode.com/posts")
+);

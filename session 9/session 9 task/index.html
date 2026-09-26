@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorer · product catalog</title>
+    <!-- external CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- external JS (defer) -->
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="nav-brand">🛍️ Explorer</span>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="product.html" id="singleLink">Product lookup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- main content -->
+    <main class="container">
+        <section class="controls">
+            <button id="loadBtn" class="btn primary">📦 Load Products</button>
+            <div class="filter-group">
+                <input type="text" id="searchInput" placeholder="🔍 Search by title..." class="search-input">
+                <select id="categoryFilter" class="filter-select">
+                    <option value="all">All categories</option>
+                </select>
+                <select id="sortSelect" class="filter-select">
+                    <option value="default">Sort by price</option>
+                    <option value="asc">Price: low → high</option>
+                    <option value="desc">Price: high → low</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- status messages -->
+        <div id="statusMessage" class="status-message"></div>
+
+        <!-- product counter -->
+        <div id="productCounter" class="product-counter">Showing 0 products</div>
+
+        <!-- product grid -->
+        <div id="productGrid" class="product-grid"></div>
+
+        <!-- empty result (hidden by default) -->
+        <div id="emptyResult" class="empty-result" style="display: none;">🔎 No products match your criteria.</div>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span>© 2026 Explorer · built with dummyJSON</span>
+        </div>
+    </footer>
+</body>
+
+</html>
